@@ -9,12 +9,10 @@
     <div class="panel-heading">Select your drink to see their location!</div>
     <div class="panel-body">
       {{#each drink}}
-        <form action="/{{this.name}}" method="POST">
-          <h3>
-            <input type="hidden" value="{{this.name}}">
-            <button type="submit" class="btn btn-warning" id="{{this.name}}">{{this.name}}</button>
-          </h3>
-        </form>
+        <h3>
+          <input type="hidden" value="{{this.name}}">
+          <button type="submit" class="btn btn-warning" id="{{this.name}}">{{this.name}}</button>
+        </h3>
       {{/each}}
     </div>
   </div>

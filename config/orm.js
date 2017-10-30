@@ -63,6 +63,19 @@ var orm = {
       cb(result);
     });
   }
+  getLocationInfo: function(tableInput, locationName, cb) {
+    var queryString = "SELECT * FROM " + tableInput;
+    queryString += " WHERE name='";
+    queryString += drinkName+"'";
+    console.log(queryString)
+
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  }
   // create: function(table, cols, vals, cb) {
   //   var queryString = "INSERT INTO " + table;
 
