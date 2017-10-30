@@ -56,8 +56,7 @@ var orm = {
   },
   getLocation: function(tableInput, drinkName, cb) {
     var queryString = "SELECT * FROM " + tableInput;
-    queryString += " WHERE name='";
-    queryString += drinkName+"'";
+    queryString += " WHERE " + drinkName + " =1";
     console.log(queryString)
 
     connection.query(queryString, function(err, result) {
