@@ -9,11 +9,12 @@ router.get("/", function(req, res) {
     var hbsObject = {
       drink: data
     };
+    console.log(hbsObject)
     res.render("index", hbsObject);
   });
 });
 
-router.post("/:name", function(req, res) {
+router.get("/:name", function(req, res) {
   drinksDB.getLocation(req.params.name, function(data) {
     var locationInfo = {
       location: data
