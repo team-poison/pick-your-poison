@@ -9,10 +9,19 @@
     <div class="panel-heading">Select your drink to see their location!</div>
     <div class="panel-body">
       {{#each drink}}
+
         <h3>
-          <input type="hidden" value="{{this.name}}">
-          <button type="submit" class="btn btn-warning" id="{{this.name}}">{{this.name}}</button>
+          <input type="hidden" value="{{this}}">
+          <button type="submit" class="btn btn-warning" id="{{this}}">{{this}}</button>
         </h3>
+
+        <form action="/{{this}}" method="POST">
+          <h3>
+            <input type="hidden" value="{{this}}">
+            <button type="submit" class="btn btn-warning" id="{{this}}">{{this}}</button>
+          </h3>
+        </form>
+
       {{/each}}
     </div>
   </div>
@@ -20,9 +29,9 @@
   <div class="panel panel-primary" id="drink-location-panel">
     <div class="panel-heading">Location</div>
     <div class="panel-body" id="drink-selection-panel">
-      {{#each location}}
+      {{#each nameArray}}
         <h3>
-          <button type="submit" class="btn btn-warning" id="{{this.location}}">{{this.location}}</button>
+          <button type="submit" class="btn btn-warning" id="{{this}}">{{this}}</button>
         </h3>
       {{/each}}
     </div>

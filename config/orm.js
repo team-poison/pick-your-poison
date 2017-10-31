@@ -41,41 +41,49 @@ function objToSql(ob) {
 
 // Object for all our SQL statement functions.
 var orm = {
-  all: function(tableInput, cb) {
-    var queryString = "SELECT * FROM " + tableInput + ";";
+  allDrinks: function(tableInput, cb) {
+    var queryString = "SHOW columns FROM " + tableInput + ";";
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
-      cb(result);
+      var colHeadings = [];
+      for (var i = 2; i < result.length; i++) {
+        colHeadings.push(result[i]["Field"])
+      }
+      cb(colHeadings);
     });
   },
+
   getLocation: function(tableInput, drinkName, cb) {
     var queryString = "SELECT * FROM " + tableInput;
-    queryString += " WHERE name='";
-    queryString += drinkName+"'";
-    console.log(queryString)
-
+    queryString += " WHERE " + drinkName + " =1";
+    console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
       cb(result);
     });
-  }
-  getLocationInfo: function(tableInput, locationName, cb) {
-    var queryString = "SELECT * FROM " + tableInput;
-    queryString += " WHERE name='";
-    queryString += drinkName+"'";
-    console.log(queryString)
 
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
-      cb(result);
-    });
-  }
+  },
+  // getLocationInfo: function(tableInput, locationName, cb) {
+  //   var queryString = "SELECT * FROM " + tableInput;
+  //   queryString += " WHERE " + ;
+  //   queryString += drinkName+"'";
+  //   console.log(queryString)
+
+  //   connection.query(queryString, function(err, result) {
+  //     if (err) {
+  //       throw err;
+  //     }
+  //     cb(result);
+  //   });
+  // }
+
+  // },
+
+
   // create: function(table, cols, vals, cb) {
   //   var queryString = "INSERT INTO " + table;
 

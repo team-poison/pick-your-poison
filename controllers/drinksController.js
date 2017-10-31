@@ -5,7 +5,7 @@ var router = express.Router();
 var drinksDB = require("../models/drinks.js");
 
 router.get("/", function(req, res) {
-  drinksDB.all(function(data) {
+  drinksDB.allDrinks(function(data) {
     var hbsObject = {
       drink: data
     };
@@ -15,11 +15,13 @@ router.get("/", function(req, res) {
 
 router.post("/:name", function(req, res) {
   drinksDB.getLocation(req.params.name, function(data) {
-    var locationInfo = {
-      location: data
-    };
-    console.log(locationInfo.location)
-    res.render("index", locationInfo)
+    var nameArray = [];
+    var restobj = {nameArray};
+    for(var i = 0; i<data.length; i++) {
+      nameArray.push(data[i].restaurant);
+    }
+    res.render("index", restobj);
+    console.log(restobj);
   });
 });
 
