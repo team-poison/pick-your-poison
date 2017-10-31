@@ -1,6 +1,6 @@
 body {
     background-image: url('../assets/whiskey-barrels.jpg');
-    background-size: 100%;
+    /*background-size: 100%;*/
     background-repeat: no-repeat;
 }
 
@@ -19,7 +19,7 @@ body {
 }
 
 #create {
-	margin-top: 50px;
+	margin-top: 20px;
     padding-top: 15px;
     font-size: 50px;
     text-shadow: 5px 5px #000000;
@@ -34,7 +34,7 @@ body {
 }
 
 #drinks {
-	margin-top: 50px;
+	margin-top: 20px;
 	padding-left: 10px;
     padding-top: 15px;
     font-size: 50px;
@@ -52,7 +52,7 @@ body {
 .footer {
 	padding:30px;
     height: 80px;
-    margin-top: 210px;
+    margin-top: 40px;
     background-color: #1f0200;
     background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
     color:#F7E7CE;
