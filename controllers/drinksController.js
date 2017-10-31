@@ -10,11 +10,11 @@ router.get("/", function(req, res) {
       drink: data
     };
     console.log(hbsObject)
-    res.render("index", hbsObject);
+    res.render("getDrink", hbsObject);
   });
 });
 
-router.get("/:name", function(req, res) {
+router.get("/drink/:name", function(req, res) {
   drinksDB.getLocation(req.params.name, function(data) {
     var locationInfo = {
       restaurant: data
@@ -22,9 +22,21 @@ router.get("/:name", function(req, res) {
     console.log(locationInfo)
     // console.log(data[0]["restaurant"])
     // console.log(locationInfo.location)
-    res.render("partial/location", locationInfo)
+    res.render("getLocation", locationInfo)
   });
 });
+
+// router.get("/drinks/:name", function(req, res) {
+//   drinksDB.getLocation(req.params.name, function(data) {
+//     var locationInfo = {
+//       restaurant: data
+//     }
+//     console.log(locationInfo)
+//     // console.log(data[0]["restaurant"])
+//     // console.log(locationInfo.location)
+//     res.render("partial/location", locationInfo)
+//   });
+// });
 
 // router.post("/", function(req, res) {
 //   drinksDB.create([

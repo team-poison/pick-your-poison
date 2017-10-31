@@ -10,8 +10,7 @@
     <div class="panel-body">
       {{#each drink}}
         <h3>
-          <input type="hidden" value="{{this}}">
-          <button type="submit" class="btn btn-warning" id="{{this}}">{{this}}</button>
+          <a href="/drink/{{this}}"><button type="submit" class="btn btn-warning" id="{{this}}">{{this}}</button></a>
         </h3>
       {{/each}}
     </div>
