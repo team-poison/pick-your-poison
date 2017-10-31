@@ -6,25 +6,31 @@ var drinksDB = require("../models/drinks.js");
 
 router.get("/", function(req, res) {
   drinksDB.all(function(data) {
-    var hbsObject = {
+    var drinks = {
       drink: data
     };
-    console.log(hbsObject)
-    res.render("getDrink", hbsObject);
+    res.render("getDrinks", drinks);
   });
 });
 
 router.get("/drink/:name", function(req, res) {
   drinksDB.getLocation(req.params.name, function(data) {
-    var locationInfo = {
+    var restaurants = {
       restaurant: data
     }
-    console.log(locationInfo)
-    // console.log(data[0]["restaurant"])
-    // console.log(locationInfo.location)
-    res.render("getLocation", locationInfo)
+    res.render("getRestaurants", restaurants)
   });
 });
+
+router.get("/restaurant/:name", function(req, res) {
+  drinksDB.getLocation(req.params.name, function(data) {
+    var restaurantInfo = {
+      restaurantInfo: data
+    }
+    res.render("getLocation", restaurantInfo)
+  });
+});
+
 
 // router.get("/drinks/:name", function(req, res) {
 //   drinksDB.getLocation(req.params.name, function(data) {
