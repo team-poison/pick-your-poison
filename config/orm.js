@@ -63,7 +63,12 @@ var orm = {
       if (err) {
         throw err;
       }
-      cb(result);
+      console.log(result)
+      var restaurants = [];
+      for (var i = 0; i < result.length; i++) {
+        restaurants.push(result[i]["restaurant"])
+      }
+      cb(restaurants);
     });
   }
   // getLocationInfo: function(tableInput, locationName, cb) {

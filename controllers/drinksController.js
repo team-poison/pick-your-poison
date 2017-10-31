@@ -16,9 +16,13 @@ router.get("/", function(req, res) {
 
 router.get("/:name", function(req, res) {
   drinksDB.getLocation(req.params.name, function(data) {
-    console.log(data[0]["restaurant"])
+    var locationInfo = {
+      restaurant: data
+    }
+    console.log(locationInfo)
+    // console.log(data[0]["restaurant"])
     // console.log(locationInfo.location)
-    res.render("index", data["restaurant"])
+    res.render("partial/location", locationInfo)
   });
 });
 

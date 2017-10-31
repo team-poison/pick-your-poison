@@ -17,16 +17,7 @@
     </div>
   </div>
 
-  <div class="panel panel-primary" id="drink-location-panel">
-    <div class="panel-heading">Location</div>
-    <div class="panel-body" id="drink-selection-panel">
-      {{#each location}}
-        <h3>
-          <button type="submit" class="btn btn-warning" id="{{this.location}}">{{this.location}}</button>
-        </h3>
-      {{/each}}
-    </div>
-  </div>
+  {{> location-block }}
 
   </div>
 </div>
