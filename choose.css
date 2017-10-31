@@ -1,0 +1,16 @@
+.jumbotron {
+	text-align:center;
+}
+
+#rest-head {
+	text-align:center;
+}
+
+#drink-head {
+	text-align: center;
+}
+
+label {
+	margin-bottom:6px;
+	margin-left:5px;
+}
