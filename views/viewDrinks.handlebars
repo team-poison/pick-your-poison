@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="jumbotron text-center">
+    <h2>Find the most expensive drinks in the world!</h2>
+  </div>
+</div>
+
+<div class="container">
+  <div class="panel panel-primary" id="drink-selection-panel">
+    <div class="panel-heading">Select your drink to see their location!</div>
+    <div class="panel-body">
+      {{#each drink}}
+        <h3>
+          <a href="/drink/{{this}}"><button type="submit" class="btn btn-warning" id="{{this}}">{{this}}</button></a>
+        </h3>
+      {{/each}}
+    </div>
+  </div>
+</div>

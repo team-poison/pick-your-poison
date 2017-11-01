@@ -2,11 +2,19 @@
 var mysql = require("mysql");
 
 var connection = mysql.createConnection({
+// <<<<<<< HEAD
   port: 3306,
   host: "localhost",
   user: "root",
   password: "joguktong1!",
-  database: "drinks_db"
+  database: "pyp_db"
+// =======
+//   socketPath:"/Applications/MAMP/tmp/mysql/mysql.sock", 
+
+//   user: 'root',
+//   password: 'root',
+//   database: "drinks_db"
+// >>>>>>> jason
 });
 
 // Make connection.

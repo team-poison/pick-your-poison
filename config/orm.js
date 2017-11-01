@@ -42,15 +42,36 @@ function objToSql(ob) {
 // Object for all our SQL statement functions.
 var orm = {
   all: function(tableInput, cb) {
-    var queryString = "SELECT * FROM " + tableInput + ";";
+    var queryString = "SHOW columns FROM " + tableInput + ";";
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
-      cb(result);
+      var colHeadings = [];
+      for (var i = 2; i < result.length; i++) {
+        colHeadings.push(result[i]["Field"])
+      }
+      cb(colHeadings);
     });
   },
   getLocation: function(tableInput, drinkName, cb) {
+    var queryString = "SELECT * FROM " + tableInput;
+    queryString += " WHERE " + drinkName + " =1";
+    console.log(queryString)
+
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      console.log(result)
+      var restaurants = [];
+      for (var i = 0; i < result.length; i++) {
+        restaurants.push(result[i]["restaurant"])
+      }
+      cb(restaurants);
+    });
+  },
+  getLocationInfo: function(tableInput, locationName, cb) {
     var queryString = "SELECT * FROM " + tableInput;
     queryString += " WHERE name='";
     queryString += drinkName+"'";
@@ -63,6 +84,7 @@ var orm = {
       cb(result);
     });
   }
+  
   // create: function(table, cols, vals, cb) {
   //   var queryString = "INSERT INTO " + table;
 
