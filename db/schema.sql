@@ -1,12 +1,11 @@
-### Schema
-
-CREATE DATABASE if not exists drinks_db;
-USE drinks_db;
-
-CREATE TABLE drinks
-(
-	id int NOT NULL AUTO_INCREMENT,
-	name varchar(255) NOT NULL,
-	location varchar(255) NOT NULL,
-	PRIMARY KEY (id)
+DROP DATABASE IF EXISTS pyp_db;
+CREATE DATABASE pyp_db;
+USE pyp_db;
+CREATE TABLE restaurants(
+  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+  restaurant VARCHAR(100),
+  Blantons BOOLEAN Default 0,
+  Pappy BOOLEAN Default 0,
+  Four_Roses BOOLEAN Default 0,
+  PRIMARY KEY (id)
 );
