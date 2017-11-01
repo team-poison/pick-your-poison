@@ -1,15 +1,21 @@
 var express = require("express");
-
 var router = express.Router();
-
 var drinksDB = require("../models/drinks.js");
 
 router.get("/", function(req, res) {
+   res.render("viewOrCreate");
+});
+
+router.get("/createDrinks", function(req, res) {
+   res.render("createDrinks");
+});
+
+router.get("/viewDrinks", function(req, res) {
   drinksDB.all(function(data) {
     var drinks = {
       drink: data
-    };
-    res.render("getDrinks", drinks);
+    }
+    res.render("viewDrinks", drinks);
   });
 });
 
@@ -18,16 +24,16 @@ router.get("/drink/:name", function(req, res) {
     var restaurants = {
       restaurant: data
     }
-    res.render("getRestaurants", restaurants)
+    res.render("viewRestaurants", restaurants)
   });
 });
 
 router.get("/restaurant/:name", function(req, res) {
-  drinksDB.getLocation(req.params.name, function(data) {
+  drinksDB.getLocationInfo(req.params.name, function(data) {
     var restaurantInfo = {
       restaurantInfo: data
     }
-    res.render("getLocation", restaurantInfo)
+    res.render("showRestaurantInfo", restaurantInfo)
   });
 });
 
