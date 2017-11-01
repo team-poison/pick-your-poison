@@ -2,6 +2,11 @@ body {
     background-image: url('../images/whiskey-barrels.jpg');
     /*background-size: 100%;*/
     background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .jumbotron {
@@ -80,4 +85,8 @@ li {
 
 .form-group {
   margin-bottom: 5px;
+}
+
+.container-background {
+    background: rgba(242, 242, 242, 0.3);
 }
