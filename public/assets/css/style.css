@@ -3,7 +3,7 @@ body {
     /*background-size: 100%;*/
     background-repeat: no-repeat;
     height: 100%;
-    margin: 0;
+    margin: 0, auto;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -11,12 +11,11 @@ body {
 
 .jumbotron {
     border-style: outset;
-    border-color:#7c4e2f;
+    border-color: #7c4e2f;
     border-width: 3px;
     font-size: 80px;
     text-shadow: 5px 5px #000000;
     font-family: 'Calligraffitti', cursive;
-    margin-top: 20px;
     background-color: #1f0200;
     background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
     color: #F7E7CE;
@@ -24,7 +23,8 @@ body {
 }
 
 #create {
-	margin-top: 20px;
+    width: 100%;
+
     padding-top: 15px;
     font-size: 42px;
     text-shadow: 5px 5px #000000;
@@ -39,9 +39,8 @@ body {
 }
 
 #drinks {
-	margin-top: 20px;
-	padding-left: 10px;
-    padding-top: 15px;
+
+    width: 100%;
     font-size: 42px;
     text-shadow: 5px 5px #000000;
     border-style: outset;
@@ -55,12 +54,12 @@ body {
 }
 
 .footer {
-	padding:30px;
+    padding: 30px;
     height: 80px;
     margin-top: 40px;
     background-color: #1f0200;
     background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-    color:#F7E7CE;
+    color: #F7E7CE;
     text-align: center;
     border-style: outset;
     border-color: #7c4e2f;
@@ -68,25 +67,29 @@ body {
 }
 
 li {
-  padding: 5px;
-  margin: 5px;
-  background: #faebd7;
+    padding: 5px;
+    margin: 5px;
+    background: #faebd7;
 }
 
 .label {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .create-update-form {
-  padding: 5px;
-  margin: 5px;
-  background: aqua;
+    padding: 5px;
+    margin: 5px;
+    background: aqua;
 }
 
 .form-group {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
-.container-background {
-    background: rgba(242, 242, 242, 0.3);
+
+
+.container {
+
+    background: rgba(242, 242, 242, 0.1);
+    /*margin: 0, auto;*/
 }
