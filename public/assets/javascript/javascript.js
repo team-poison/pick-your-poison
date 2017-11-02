@@ -103,7 +103,7 @@ $(document).ready(function() {
 
     	// AJAX post the data to the friends API. 
     	$.post("/createDrink", newRestaurant, function(data) {
-
+    		
     		//Grab the result from the AJAX post so that the best match's name and photo are displayed.
 
     	});
