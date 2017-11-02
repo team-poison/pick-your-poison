@@ -6,8 +6,8 @@ router.get("/", function(req, res) {
    res.render("viewOrCreate");
 });
 
-router.get("/createDrinks", function(req, res) {
-   res.render("createDrinks");
+router.get("/managerOption", function(req, res) {
+   res.render("managerOption");
 });
 
 router.get("/viewDrinks", function(req, res) {
@@ -50,15 +50,27 @@ router.get("/restaurant/:name", function(req, res) {
 //   });
 // });
 
-// router.post("/", function(req, res) {
-//   drinksDB.create([
-//     "name", "location"
-//   ], [
-//     req.body.name, req.body.location
-//   ], function() {
-//     res.redirect("/");
-//   });
-// });
+router.post("/managerOption/submitRestaurant", function(req, res) {
+  
+  console.log(req.body["input[]"])
+  drinksDB.addRestaurant([
+    "restaurant"], [
+    req.body["name"], req.body["input[]"]
+  ], function() {
+    res.redirect("/");
+  });
+});
+
+router.post("/managerOption/submitDrink", function(req, res) {
+  
+  console.log(req.body["input[]"])
+  drinksDB.addRestaurant([
+    "restaurant"], [
+    req.body["name"], req.body["input[]"]
+  ], function() {
+    res.redirect("/");
+  });
+});
 
 // router.put("/:name", function(req, res) {
 //   var condition = "name = " + req.params.id;
