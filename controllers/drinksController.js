@@ -50,15 +50,16 @@ router.get("/restaurant/:name", function(req, res) {
 //   });
 // });
 
-// router.post("/", function(req, res) {
-//   drinksDB.create([
-//     "name", "location"
-//   ], [
-//     req.body.name, req.body.location
-//   ], function() {
-//     res.redirect("/");
-//   });
-// });
+router.post("/createDrink", function(req, res) {
+  // drinksDB.create([
+  //   "name", "location"
+  // ], [
+  //   req.body.name, req.body.location
+  // ], function() {
+  //   res.redirect("/");
+  // });
+  console.log(req.params)
+});
 
 // router.put("/:name", function(req, res) {
 //   var condition = "name = " + req.params.id;
