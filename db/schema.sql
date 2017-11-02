@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS pyp_db;
 CREATE DATABASE pyp_db;
 USE pyp_db;
+
 CREATE TABLE restaurants(
   id INTEGER(11) AUTO_INCREMENT NOT NULL,
   restaurant VARCHAR(100),
