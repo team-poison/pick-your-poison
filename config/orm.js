@@ -6,14 +6,13 @@ var connection = require("../config/connection.js");
 // In order to write the query, we need 3 question marks.
 // The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
 // ["?", "?", "?"].toString() => "?,?,?";
-function printQuestionMarks(num) {
-  var arr = [];
+function printQuestionMarks(vals, num) {
 
   for (var i = 0; i < num; i++) {
-    arr.push("?");
+    vals.push("?");
   }
 
-  return arr.toString();
+  return vals.toString();
 }
 
 // Helper function to convert object key/value pairs to SQL syntax
@@ -83,28 +82,95 @@ var orm = {
       }
       cb(result);
     });
-  }
+  },
   
-  // create: function(table, cols, vals, cb) {
-  //   var queryString = "INSERT INTO " + table;
+  addRestaurant: function(table, cols, vals, cb) {
+    var queryString = "INSERT INTO " + table;
+    
+    var colHeadings = [ 
+      'Blantons',
+      'Four_Roses',
+      'Pappy_Van_Winkle_15y',
+      'Black_Maple_Hill_16yr',
+      'Yamazaki_18yr',
+      'Johnny_Walker_Blue',
+      'Handcocks_Presidential_Reserve',
+      'Balvenie_50yr',
+      'Michters_20yr',
+      'Elija_Craig_18yr',
+      'Red_Breast_15yr'
+    ]
 
-  //   queryString += " (";
-  //   queryString += cols.toString();
-  //   queryString += ") ";
-  //   queryString += "VALUES (";
-  //   queryString += printQuestionMarks(vals.length);
-  //   queryString += ") ";
+    for (var i = 0; i < colHeadings.length; i++) {
+      cols.push(colHeadings[i])
+    };
 
-  //   console.log(queryString);
+    var quotedVals = ["'"+vals[0]+"'",vals[1]].toString();
+    console.log(quotedVals)
 
-  //   connection.query(queryString, vals, function(err, result) {
-  //     if (err) {
-  //       throw err;
-  //     }
+    queryString += " (";
+    queryString += cols.toString();
+    
+    queryString += ") ";
+    queryString += "VALUES (";
 
-  //     cb(result);
-  //   });
-  // },
+    queryString += quotedVals;
+    queryString += ") ";
+
+    console.log(queryString);
+
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    });
+  },
+
+  addDrink: function(table, cols, vals, cb) {
+    var queryString = "INSERT INTO " + table;
+    
+    var colHeadings = [ 
+      'Blantons',
+      'Four_Roses',
+      'Pappy_Van_Winkle_15y',
+      'Black_Maple_Hill_16yr',
+      'Yamazaki_18yr',
+      'Johnny_Walker_Blue',
+      'Handcocks_Presidential_Reserve',
+      'Balvenie_50yr',
+      'Michters_20yr',
+      'Elija_Craig_18yr',
+      'Red_Breast_15yr'
+    ]
+
+    for (var i = 0; i < colHeadings.length; i++) {
+      cols.push(colHeadings[i])
+    };
+
+    var quotedVals = ["'"+vals[0]+"'",vals[1]].toString();
+    console.log(quotedVals)
+
+    queryString += " (";
+    queryString += cols.toString();
+    
+    queryString += ") ";
+    queryString += "VALUES (";
+
+    queryString += quotedVals;
+    queryString += ") ";
+
+    console.log(queryString);
+
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    });
+  }
   // // An example of objColVals would be {name: panther, sleepy: true}
   // update: function(table, objColVals, condition, cb) {
   //   var queryString = "UPDATE " + table;

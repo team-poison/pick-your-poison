@@ -15,8 +15,8 @@ var drinks = {
   },
 
   // The variables cols and vals are arrays.
-  create: function(cols, vals, cb) {
-    orm.create("restaurants", cols, vals, function(res) {
+  addRestaurant: function(rows, val, cb) {
+    orm.addRestaurant("restaurants", rows, val, function(res) {
       cb(res);
     });
   },
