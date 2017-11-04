@@ -1,18 +1,21 @@
-<!DOCTYPE html>
-<head>
-	<title>Pick Your Poison - Manager Options</title>
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/choose.css">
-</head>
 
-<body>
+
+
 	<div class="container">
 		<br>
+
+		
+		<br>
+
 		<div class="jumbotron">
 			<h1>Manager Option</h1>
 			<h2>Fill Out The Form To Add Your Bar/Restaurant To Our Database</h2>
 		</div>
+
+		<a href="/"> <button type="button" class="btn btn-default" aria-label="Left Align" id="home">
+  <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
+</button></a>
+
 
 		<div class="row">
 			<div class="col-sm-7">
@@ -24,25 +27,25 @@
 					</div>
 					<form>
 						<div class="form-group">
-							<label for="name">Name Of Your Restaurant:</label>
+							<label for="rest-name">Name Of Your Restaurant:</label>
 							<input type="text" class="form-control" id="rest-name" placeholder="Name">
 						</div>
 						<div class="form-group">
-							<label for="location">Where You Are Located:</label>
+							<label for="rest-loc">Where You Are Located:</label>
 							<input type="text" class="form-control" id="rest-loc" placeholder="Location">
 						</div>
 					</form>
 					<!-- second form -->
 					<h3>Bourbon Selection</h3>
-					<label for="form">Please Fill Out The Form For Each Bourbon You Have Stocked</label>
+					<label>Please Fill Out The Form For Each Bourbon You Have Stocked</label>
 					<form>
 						<div id="q1" class="panel panel-default">
 							<p class="panel-heading"><strong>Pappy Van Winkle - 15 Year</strong></p>
 							<label class="radio-inline" style="margin-left:8px; margin-bottom:6px;">
-								<input type="radio" name="optradio">Yes
+								<input type="radio" name="optradio" class="user-input" value="1">Yes
 							</label>
 							<label class="radio-inline" style="margin-left:15px; margin-bottom:6px;">
-								<input type="radio" name="optradio">No
+								<input type="radio" name="optradio" class="user-input" value="0" >No
 							</label>
 						</div>
 					</form>
@@ -51,10 +54,10 @@
 						<div id="q2" class="panel panel-default">
 							<p class="panel-heading"><strong>Black Maple Hill - 16 Year</strong></p>
 							<label class="radio-inline" style="margin-left:8px; margin-bottom:6px;">
-								<input type="radio" name="optradio">Yes
+								<input type="radio" name="optradio" class="user-input" value="1">Yes
 							</label>
 							<label class="radio-inline" style="margin-left:15px; margin-bottom:6px;">
-								<input type="radio" name="optradio">No
+								<input type="radio" name="optradio" class="user-input" value="0">No
 							</label>
 						</div>
 					</form>
@@ -63,10 +66,10 @@
 						<div id="q3" class="panel panel-default">
 							<p class="panel-heading"><strong>Yamazaki - 18 Year</strong></p>
 							<label class="radio-inline" style="margin-left:8px; margin-bottom:6px;">
-								<input type="radio" name="optradio">Yes
+								<input type="radio" name="optradio" class="user-input" value="1">Yes
 							</label>
 							<label class="radio-inline" style="margin-left:15px; margin-bottom:6px;">
-								<input type="radio" name="optradio">No
+								<input type="radio" name="optradio" class="user-input" value="0">No
 							</label>
 						</div>
 					</form>
@@ -75,10 +78,10 @@
 						<div id="q4" class="panel panel-default">
 							<p class="panel-heading"><strong>Johnny Walker Blue Label</strong></p>
 							<label class="radio-inline" style="margin-left:8px; margin-bottom:6px;">
-								<input type="radio" name="optradio">Yes
+								<input type="radio" name="optradio" class="user-input" value="1">Yes
 							</label>
 							<label class="radio-inline" style="margin-left:15px; margin-bottom:6px;">
-								<input type="radio" name="optradio">No
+								<input type="radio" name="optradio" class="user-input" value="0">No
 							</label>
 						</div>
 					</form>
@@ -87,10 +90,10 @@
 						<div id="q5" class="panel panel-default">
 							<p class="panel-heading"><strong>Blanton's Special Reserve</strong></p>
 							<label class="radio-inline" style="margin-left:8px; margin-bottom:6px;">
-								<input type="radio" name="optradio">Yes
+								<input type="radio" name="optradio" class="user-input" value="1">Yes
 							</label>
 							<label class="radio-inline" style="margin-left:15px; margin-bottom:6px;">
-								<input type="radio" name="optradio">No
+								<input type="radio" name="optradio" class="user-input" value="0">No
 							</label>
 						</div>
 					</form>
@@ -99,10 +102,10 @@
 						<div id="q6" class="panel panel-default">
 							<p class="panel-heading"><strong>Hancock's Presidential Reserve</strong></p>
 							<label class="radio-inline" style="margin-left:8px; margin-bottom:6px;">
-								<input type="radio" name="optradio">Yes
+								<input type="radio" name="optradio" class="user-input" value="1">Yes
 							</label>
 							<label class="radio-inline" style="margin-left:15px; margin-bottom:6px;">
-								<input type="radio" name="optradio">No
+								<input type="radio" name="optradio" class="user-input" value="0">No
 							</label>
 						</div>
 					</form>
@@ -111,10 +114,10 @@
 						<div id="q7" class="panel panel-default">
 							<p class="panel-heading"><strong>Balvenie- 50 year</strong></p>
 							<label class="radio-inline" style="margin-left:8px; margin-bottom:6px;">
-								<input type="radio" name="optradio">Yes
+								<input type="radio" name="optradio" class="user-input" value="1">Yes
 							</label>
 							<label class="radio-inline" style="margin-left:15px; margin-bottom:6px;">
-								<input type="radio" name="optradio">No
+								<input type="radio" name="optradio" class="user-input" value="0">No
 							</label>
 						</div>
 					</form>
@@ -123,10 +126,10 @@
 						<div id="q8" class="panel panel-default">
 							<p class="panel-heading"><strong>Michter's - 20 year</strong></p>
 							<label class="radio-inline" style="margin-left:8px; margin-bottom:6px;">
-								<input type="radio" name="optradio">Yes
+								<input type="radio" name="optradio" class="user-input" value="1">Yes
 							</label>
 							<label class="radio-inline" style="margin-left:15px; margin-bottom:6px;">
-								<input type="radio" name="optradio">No
+								<input type="radio" name="optradio" class="user-input" value="0">No
 							</label>
 						</div>
 					</form>
@@ -135,10 +138,10 @@
 						<div id="q9" class="panel panel-default">
 							<p class="panel-heading"><strong>Elija Craig - 18 Year</strong></p>
 							<label class="radio-inline" style="margin-left:8px; margin-bottom:6px;">
-								<input type="radio" name="optradio">Yes
+								<input type="radio" name="optradio" class="user-input" value="1">Yes
 							</label>
 							<label class="radio-inline" style="margin-left:15px; margin-bottom:6px;">
-								<input type="radio" name="optradio">No
+								<input type="radio" name="optradio" class="user-input" value="0">No
 							</label>
 						</div>
 					</form>
@@ -147,10 +150,10 @@
 						<div id="q10" class="panel panel-default">
 							<p class="panel-heading"><strong>Red Breast - 15 year</strong></p>
 							<label class="radio-inline" style="margin-left:8px; margin-bottom:6px;">
-								<input type="radio" name="optradio">Yes
+								<input type="radio" name="optradio" class="user-input" value="1">Yes
 							</label>
 							<label class="radio-inline" style="margin-left:15px; margin-bottom:6px;">
-								<input type="radio" name="optradio">No
+								<input type="radio" name="optradio" class="user-input" value="0">No
 							</label>
 						</div>
 					</form>
@@ -169,15 +172,15 @@
 						<h3>Bourbon Details</h3>
 						<form>
 							<div class="form-group">
-								<label for="name">Name Of The Bourbon:</label>
+								<label for="bourbon">Name Of The Bourbon:</label>
 								<input type="text" class="form-control" id="bourbon" placeholder="Name">
 							</div>
 							<div class="form-group">
-								<label for="location">Years Barrelled:</label>
+								<label for="years">Years Barrelled:</label>
 								<input type="text" class="form-control" id="years" placeholder="Years">
 							</div>
 							<div class="form-group">
-								<label for="location">Barrelled At:</label>
+								<label for="barreled">Barrelled At:</label>
 								<input type="text" class="form-control" id="barreled" placeholder="Location">
 							</div>
 						</form>
@@ -194,4 +197,3 @@
 
 
 
-</body>

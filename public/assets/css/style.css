@@ -1,6 +1,5 @@
 body {
     background-image: url('../images/whiskey-barrels.jpg');
-    /*background-size: 100%;*/
     background-repeat: no-repeat;
     height: 100%;
     margin: 0, auto;
@@ -24,9 +23,8 @@ body {
 
 #create {
     width: 100%;
-
     padding-top: 15px;
-    font-size: 42px;
+    font-size: 250%;
     text-shadow: 5px 5px #000000;
     border-style: outset;
     border-color: #7c4e2f;
@@ -41,7 +39,7 @@ body {
 #drinks {
 
     width: 100%;
-    font-size: 42px;
+    font-size: 250%;
     text-shadow: 5px 5px #000000;
     border-style: outset;
     border-color: #7c4e2f;
@@ -91,5 +89,12 @@ li {
 .container {
 
     background: rgba(242, 242, 242, 0.1);
-    /*margin: 0, auto;*/
+    margin: 0, auto;
 }
+
+#home {
+    margin: 3px;
+    color: #F7E7CE;
+    background-color: #1f0200;
+}
+
