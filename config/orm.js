@@ -117,96 +117,30 @@ var orm = {
     queryString += quotedVals;
     queryString += ") ";
 
-<<<<<<< HEAD
-    console.log(queryString);
-=======
     //console.log(queryString);
->>>>>>> Zoli
 
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
-
       cb(result);
     });
   },
-
-<<<<<<< HEAD
-  addDrink: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO " + table;
-    
-    var colHeadings = [ 
-      'Blantons',
-      'Four_Roses',
-      'Pappy_Van_Winkle_15y',
-      'Black_Maple_Hill_16yr',
-      'Yamazaki_18yr',
-      'Johnny_Walker_Blue',
-      'Handcocks_Presidential_Reserve',
-      'Balvenie_50yr',
-      'Michters_20yr',
-      'Elija_Craig_18yr',
-      'Red_Breast_15yr'
-    ]
-
-    for (var i = 0; i < colHeadings.length; i++) {
-      cols.push(colHeadings[i])
-    };
-
-    var quotedVals = ["'"+vals[0]+"'",vals[1]].toString();
-    console.log(quotedVals)
-
-    queryString += " (";
-    queryString += cols.toString();
-    
-    queryString += ") ";
-    queryString += "VALUES (";
-
-    queryString += quotedVals;
-    queryString += ") ";
-
-    console.log(queryString);
-
-=======
   
-
   addDrink: function(table, drinkName, cb) {
     var queryString = "ALTER TABLE " + table + " ADD COLUMN " + drinkName + " VARCHAR(50);";
->>>>>>> Zoli
+
+    console.log(queryString)
+    
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
-<<<<<<< HEAD
-
-      cb(result);
-    });
-  }
-  // // An example of objColVals would be {name: panther, sleepy: true}
-  // update: function(table, objColVals, condition, cb) {
-  //   var queryString = "UPDATE " + table;
-
-  //   queryString += " SET ";
-  //   queryString += objToSql(objColVals);
-  //   queryString += " WHERE ";
-  //   queryString += condition;
-
-  //   console.log(queryString);
-  //   connection.query(queryString, function(err, result) {
-  //     if (err) {
-  //       throw err;
-  //     }
-  //     cb(result);
-  //   });
-  // }
-=======
       console.log(result);
       cb (result);
     });
   }
 
->>>>>>> Zoli
 };
 
 // Export the orm object for the model (cat.js).

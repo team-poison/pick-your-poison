@@ -45,22 +45,6 @@ router.get("/restaurant/:name", function(req, res) {
   });
 });
 
-
-<<<<<<< HEAD
-// router.get("/drinks/:name", function(req, res) {
-//   drinksDB.getLocation(req.params.name, function(data) {
-//     var locationInfo = {
-//       restaurant: data
-//     }
-//     console.log(locationInfo)
-//     // console.log(data[0]["restaurant"])
-//     // console.log(locationInfo.location)
-//     res.render("partial/location", locationInfo)
-//   });
-// });
-
-=======
->>>>>>> Zoli
 router.post("/managerOption/submitRestaurant", function(req, res) {
   
   console.log(req.body["input[]"])
@@ -70,20 +54,6 @@ router.post("/managerOption/submitRestaurant", function(req, res) {
   ], function() {
     res.redirect("/");
   });
-<<<<<<< HEAD
-});
-
-router.post("/managerOption/submitDrink", function(req, res) {
-  
-  console.log(req.body["input[]"])
-  drinksDB.addRestaurant([
-    "restaurant"], [
-    req.body["name"], req.body["input[]"]
-  ], function() {
-    res.redirect("/");
-  });
-=======
->>>>>>> Zoli
 });
 
 router.post("/managerOption/submitDrink", function(req, res) {
