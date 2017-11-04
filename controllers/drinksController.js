@@ -12,16 +12,17 @@ router.get("/managerOption", function(req, res) {
 
 router.get("/viewDrinks", function(req, res) {
   drinksDB.all(function(data) {
-    // replace(/_/g, "");
-    var drinks = {
-      drink: data
-    }
-    var numbers = [1, 2, 3, 4];
 
-var newNumbers = numbers.map(function(number){
-    return number * 2;
-});
-    console.log(data);
+
+    var newData = data.map(function(string){
+        return string.replace(/_/g, " ");
+    });
+
+    var drinks = {
+      drink: newData
+    }
+    
+    console.log(newData);
     res.render("viewDrinks", drinks);
   });
 });
