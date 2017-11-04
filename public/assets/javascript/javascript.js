@@ -6,94 +6,32 @@ $(document).ready(function() {
 	for (var i = 0; i < inputLength; i++) {
 		restaurantInput.push(0);
 	}
-	
-	var questionArray = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q11"]
-	var questionArrayLength = questionArray.length
 
-	// $("#drink-stock").on("click", function(event) {
-	// 	console.log(event.target.id)
-	// 	for (var i = 0; i < questionArrayLength; i++) {
-	// 		if (event.target.id === questionArrayLength[i]) {
-	// 			console.log("I'm working!")
-	// 		};
-	// 	};
-	// });
+	var drinksArray = ["Blantons", "Four Roses", "Pappy Van Winkle - 15 years", 
+	"Black Maple Hill - 16 years", "Yamazaki - 16 years", "Johnny Walker Blue", 
+	"Handcocks Presidential Reserve", "Balvenie - 50 years", "Michters - 20 years", 
+	"Elija Craig - 18 years", "Red Beast - 15 years"]
 
-	$("#q1").on("click", function(event) {
-		if (event.target.id === "user-input") {
-			console.log(event.target.value)
-			restaurantInput.splice(0, 1, parseInt(event.target.value))
-		}
-	});
+	for (var i = 0; i < drinksArray.length; i++) {
 
-	$("#q2").on("click", function(event) {
-		if (event.target.id === "user-input") {
-			console.log(event.target.value)
-			restaurantInput.splice(1, 1, parseInt(event.target.value))
-		}
-	});
+		var userInput = $("<div class='panel panel-default user-input'>");
 
-	$("#q3").on("click", function(event) {
-		if (event.target.id === "user-input") {
-			console.log(event.target.value)
-			restaurantInput.splice(2, 1, parseInt(event.target.value))
-		}
-	});
+		var yesRadioButton = $('<label class="radio-inline" style="margin-left:8px; margin-bottom:6px;">');
+		var noRadioButton = $('<label class="radio-inline" style="margin-left:15px; margin-bottom:6px;">');
 
-	$("#q4").on("click", function(event) {
-		if (event.target.id === "user-input") {
-			console.log(event.target.value)
-			restaurantInput.splice(3, 1, parseInt(event.target.value))
-		}
-	});
+		yesRadioButton.html('<input type="radio" name="optradio" value='+(i+'-1')+'>Yes');
+		noRadioButton.html('<input type="radio" name="optradio" value='+(i+'-0')+'>No');
 
-	$("#q5").on("click", function(event) {
-		if (event.target.id === "user-input") {
-			console.log(event.target.value)
-			restaurantInput.splice(4, 1, parseInt(event.target.value))
-		}
-	});
+		userInput.append('<p class="panel-heading" id="drink-title">'+drinksArray[i]+'</p>');
+		userInput.append(yesRadioButton)
+		userInput.append(noRadioButton)
 
-	$("#q6").on("click", function(event) {
-		if (event.target.id === "user-input") {
-			console.log(event.target.value)
-			restaurantInput.splice(5, 1, parseInt(event.target.value))
-		}
-	});
+		$("#drink-stock-form").append(userInput);
+	};
 
-	$("#q7").on("click", function(event) {
-		if (event.target.id === "user-input") {
-			console.log(event.target.value)
-			restaurantInput.splice(6, 1, parseInt(event.target.value))
-		}
-	});
-
-	$("#q8").on("click", function(event) {
-		if (event.target.id === "user-input") {
-			console.log(event.target.value)
-			restaurantInput.splice(7, 1, parseInt(event.target.value))
-		}
-	});
-
-	$("#q9").on("click", function(event) {
-		if (event.target.id === "user-input") {
-			console.log(event.target.value)
-			restaurantInput.splice(8, 1, parseInt(event.target.value))
-		}
-	});
-
-	$("#q10").on("click", function(event) {
-		if (event.target.id === "user-input") {
-			console.log(event.target.value)
-			restaurantInput.splice(9, 1, parseInt(event.target.value))
-		}
-	});
-
-	$("#q11").on("click", function(event) {
-		if (event.target.id === "user-input") {
-			console.log(event.target.value)
-			restaurantInput.splice(10, 1, parseInt(event.target.value))
-		}
+	$(".user-input").on("click", function(event) {
+		var userInput = event.target.value
+		restaurantInput.splice(parseInt(userInput.split("-")[0]), 1, parseInt(userInput.split("-")[1]));
 	});
 
     $("#submit-restaurant").on("click", function() {
@@ -103,6 +41,8 @@ $(document).ready(function() {
     		"location": $("#rest-loc").val(),
     		"input": restaurantInput
     	};
+
+    	console.log(newRestaurant)
 
     	// Grab the URL of the website
 
