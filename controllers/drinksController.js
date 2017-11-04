@@ -6,15 +6,22 @@ router.get("/", function(req, res) {
    res.render("viewOrCreate");
 });
 
-router.get("/createDrinks", function(req, res) {
-   res.render("createDrinks");
+router.get("/managerOption", function(req, res) {
+   res.render("managerOption");
 });
 
 router.get("/viewDrinks", function(req, res) {
   drinksDB.all(function(data) {
+    // replace(/_/g, "");
     var drinks = {
       drink: data
     }
+    var numbers = [1, 2, 3, 4];
+
+var newNumbers = numbers.map(function(number){
+    return number * 2;
+});
+    console.log(data);
     res.render("viewDrinks", drinks);
   });
 });
@@ -38,42 +45,23 @@ router.get("/restaurant/:name", function(req, res) {
 });
 
 
-// router.get("/drinks/:name", function(req, res) {
-//   drinksDB.getLocation(req.params.name, function(data) {
-//     var locationInfo = {
-//       restaurant: data
-//     }
-//     console.log(locationInfo)
-//     // console.log(data[0]["restaurant"])
-//     // console.log(locationInfo.location)
-//     res.render("partial/location", locationInfo)
-//   });
-// });
-
-router.post("/createDrink", function(req, res) {
-  // drinksDB.create([
-  //   "name", "location"
-  // ], [
-  //   req.body.name, req.body.location
-  // ], function() {
-  //   res.redirect("/");
-  // });
-  console.log(req.params)
+router.post("/managerOption/submitRestaurant", function(req, res) {
+  
+  console.log(req.body["input[]"])
+  drinksDB.addRestaurant([
+    "restaurant"], [
+    req.body["name"], req.body["input[]"]
+  ], function() {
+    res.redirect("/");
+  });
 });
 
-// router.put("/:name", function(req, res) {
-//   var condition = "name = " + req.params.id;
+router.post("/managerOption/submitDrink", function(req, res) {
+  
+  //console.log(req.body["drinkName"]);
+  drinksDB.addDrink(req.body["drinkName"], function() {
+      res.redirect("/");
+  });
+});
 
-//   console.log(req)
-
-  // console.log("condition", condition);
-
-  // drinksDB.update({
-  //   location: req.body.location
-  // }, condition, function() {
-  //   res.redirect("/");
-  // });
-// });
-
-// Export routes for server.js to use.
 module.exports = router;
