@@ -117,7 +117,11 @@ var orm = {
     queryString += quotedVals;
     queryString += ") ";
 
+<<<<<<< HEAD
     console.log(queryString);
+=======
+    //console.log(queryString);
+>>>>>>> Zoli
 
     connection.query(queryString, function(err, result) {
       if (err) {
@@ -128,6 +132,7 @@ var orm = {
     });
   },
 
+<<<<<<< HEAD
   addDrink: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
     
@@ -163,10 +168,17 @@ var orm = {
 
     console.log(queryString);
 
+=======
+  
+
+  addDrink: function(table, drinkName, cb) {
+    var queryString = "ALTER TABLE " + table + " ADD COLUMN " + drinkName + " VARCHAR(50);";
+>>>>>>> Zoli
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
+<<<<<<< HEAD
 
       cb(result);
     });
@@ -188,6 +200,13 @@ var orm = {
   //     cb(result);
   //   });
   // }
+=======
+      console.log(result);
+      cb (result);
+    });
+  }
+
+>>>>>>> Zoli
 };
 
 // Export the orm object for the model (cat.js).

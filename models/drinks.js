@@ -20,9 +20,10 @@ var drinks = {
       cb(res);
     });
   },
-  // For restaurants
-  update: function(objColVals, condition, cb) {
-    orm.update("restaurants", objColVals, condition, function(res) {
+
+  addDrink: function(drinkName, cb) {
+    console.log(drinkName);
+    orm.addDrink("restaurants", drinkName, function(res) {
       cb(res);
     });
   }

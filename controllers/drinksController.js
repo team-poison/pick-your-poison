@@ -12,9 +12,17 @@ router.get("/managerOption", function(req, res) {
 
 router.get("/viewDrinks", function(req, res) {
   drinksDB.all(function(data) {
+
+
+    var newData = data.map(function(string){
+        return string.replace(/_/g, " ");
+    });
+
     var drinks = {
-      drink: data
+      drink: newData
     }
+    
+    console.log(newData);
     res.render("viewDrinks", drinks);
   });
 });
@@ -38,6 +46,7 @@ router.get("/restaurant/:name", function(req, res) {
 });
 
 
+<<<<<<< HEAD
 // router.get("/drinks/:name", function(req, res) {
 //   drinksDB.getLocation(req.params.name, function(data) {
 //     var locationInfo = {
@@ -50,6 +59,8 @@ router.get("/restaurant/:name", function(req, res) {
 //   });
 // });
 
+=======
+>>>>>>> Zoli
 router.post("/managerOption/submitRestaurant", function(req, res) {
   
   console.log(req.body["input[]"])
@@ -59,6 +70,7 @@ router.post("/managerOption/submitRestaurant", function(req, res) {
   ], function() {
     res.redirect("/");
   });
+<<<<<<< HEAD
 });
 
 router.post("/managerOption/submitDrink", function(req, res) {
@@ -70,21 +82,16 @@ router.post("/managerOption/submitDrink", function(req, res) {
   ], function() {
     res.redirect("/");
   });
+=======
+>>>>>>> Zoli
 });
 
-// router.put("/:name", function(req, res) {
-//   var condition = "name = " + req.params.id;
+router.post("/managerOption/submitDrink", function(req, res) {
+  
+  //console.log(req.body["drinkName"]);
+  drinksDB.addDrink(req.body["drinkName"], function() {
+      res.redirect("/");
+  });
+});
 
-//   console.log(req)
-
-  // console.log("condition", condition);
-
-  // drinksDB.update({
-  //   location: req.body.location
-  // }, condition, function() {
-  //   res.redirect("/");
-  // });
-// });
-
-// Export routes for server.js to use.
 module.exports = router;
