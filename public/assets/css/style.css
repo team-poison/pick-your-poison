@@ -54,7 +54,7 @@ body {
 .footer {
     padding: 30px;
     height: 80px;
-    margin-top: 40px;
+    margin-top: 60px;
     background-color: #1f0200;
     background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
     color: #F7E7CE;
@@ -98,3 +98,10 @@ li {
     background-color: #1f0200;
 }
 
+#pin{
+    margin-left: 15px;
+}
+
+#alcohol{
+    margin-left: 15px;
+}
