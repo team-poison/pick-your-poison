@@ -128,15 +128,15 @@ var orm = {
   },
   
   addDrink: function(table, drinkName, cb) {
-    var queryString = "ALTER TABLE " + table + " ADD COLUMN " + drinkName + " VARCHAR(50);";
+    var queryString = "ALTER TABLE " + table + " ADD COLUMN " + drinkName + " VARCHAR(50) BOOLEAN DEFAULT 0;";
 
-    console.log(queryString)
+    //console.log(queryString)
     
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
-      console.log(result);
+      //console.log(result);
       cb (result);
     });
   }
