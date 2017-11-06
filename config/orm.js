@@ -123,15 +123,15 @@ var orm = {
       if (err) {
         throw err;
       }
-
       cb(result);
     });
   },
-
   
-
   addDrink: function(table, drinkName, cb) {
     var queryString = "ALTER TABLE " + table + " ADD COLUMN " + drinkName + " VARCHAR(50);";
+
+    console.log(queryString)
+    
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;

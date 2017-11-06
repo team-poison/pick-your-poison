@@ -45,7 +45,6 @@ router.get("/restaurant/:name", function(req, res) {
   });
 });
 
-
 router.post("/managerOption/submitRestaurant", function(req, res) {
   
   console.log(req.body["input[]"])
