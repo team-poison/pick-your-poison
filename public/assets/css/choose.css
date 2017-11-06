@@ -1,0 +1,50 @@
+.jumbotron{
+	 border-style: outset;
+    border-color: #7c4e2f;
+    border-width: 3px;
+    font-size: 80px;
+    text-shadow: 5px 5px #000000;
+    font-family: 'Calligraffitti', cursive;
+    background-color: #1f0200;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+    color: #F7E7CE;
+    text-align: center;
+}
+
+.form-group{
+	background-color: #1f0200;
+	color: #F7E7CE;
+}
+.panel{
+	padding:20px;
+	background-color:  #F7E7CE;
+
+}
+.panel-default > .panel-heading{
+	padding:20px;
+	 background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+	background-color:#1f0200;
+	color: #F7E7CE; 
+}
+
+.btn {
+	color:#F7E7CE;
+	background-color: #1f0200;
+}
+
+
+
+
+
+#rest-head {
+	text-align:center;
+}
+
+#drink-head {
+	text-align: center;
+}
+
+label {
+	margin-bottom:6px;
+	margin-left:5px;
+}

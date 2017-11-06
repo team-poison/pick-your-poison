@@ -1,0 +1,25 @@
+.modal-header {
+	background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+	background-color:#1f0200;
+	text-align:center;
+}
+
+#modal-title {
+	color:#f2e1a7;
+	font-size:275%;
+}
+
+.modal-body {
+	background-color:#1f0200;
+	color:#f2e1a7;
+}
+
+.modal-footer {
+	background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+	background-color:#1f0200;
+}
+
+#modal-close-btn {
+	width:40%;
+}
+
