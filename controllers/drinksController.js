@@ -22,13 +22,14 @@ router.get("/viewDrinks", function(req, res) {
       drink: newData
     }
     
-    console.log(newData);
+    //console.log(newData);
     res.render("viewDrinks", drinks);
   });
 });
 
 router.get("/drink/:name", function(req, res) {
-  drinksDB.getLocation(req.params.name, function(data) {
+  var name = req.params.name.replace(/ /g, "_");
+  drinksDB.getLocation(name, function(data) {
     var restaurants = {
       restaurant: data
     }
