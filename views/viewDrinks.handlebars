@@ -1,37 +1,57 @@
-
-<div class="container">
-  <br>
-  <div class="jumbotron">
-    Find the most expensive drinks in the world!
-  </div>
-  
-    <a href="/"> <button type="button" class="btn btn-default" aria-label="Left Align" id="home">
-  <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
-</button></a>
-
-
-<div class="row">
-  <div class="col-lg-12">
-  <div class="panel panel-primary" id="drink-selection-panel">
-    <div class="panel-heading">Select your drink to see their location!</div>
-    <div class="panel-body">
-      {{#each drink}}
-        <h3>
-          <a href="/drink/{{this}}"><button type="submit" class="btn btn-warning" id="{{this}}">{{this}}</button></a>
-        </h3>
-      {{/each}}
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="row">
-  <div class="col-lg-12">
-    <img src="/assets/images/scotch.jpg" alt="image of a a glass of bourbon" class="img-responsive"  >
-  </div>
-</div>
-
-  <footer class="footer"> &#169; Dennis Gruszka, Jason Young, Zoli Saunt, Chang-Yeon Kim </footer>
-
-</div>
-
+ 
+<div class="container"> 
+  <br> 
+  <div class="jumbotron"> 
+    View Our Exotic Bourbons List! 
+  </div> 
+ 
+ 
+<div class="row"> 
+  <div class="panel panel-primary" id="drink-selection-panel"> 
+    <div class="panel-heading"><h4 style="text-align:center;">Select your drink to see their location<span class="glyphicon glyphicon-tint" style="margin-left:5px; margin-top:5px;"></span> </h4></div> 
+    <div class="panel-body"> 
+      {{#each drink}} 
+        <div class="col-sm-4"> 
+          <button type="button" class="btn btn-warning center-block drink-type-button" data-toggle="modal" data-target="#drink-modal" id="{{this}}" style="background-image:url('assets/images/buttonBG.png'); background-repeat: no-repeat; width:100%; height:100px; margin-top:15px;"><span style="font-weight:bold; font-size:140%; color:#f2e1a7">{{this}}</span><br>View This Drink</button> 
+        </div>  
+ 
+        {{!-- modal --}}       
+        <div id="drink-modal" class="modal fade" role="dialog"> 
+          <div class="modal-dialog"> 
+            <div class="modal-content"> 
+              <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal" style="color:#ffffff;">&times;</button> 
+                <h2 id="modal-title">{{this}}</h2> 
+              </div> 
+              <div class="modal-body"> 
+                <h4><strong>This bourbon is located at these bars/stores:</strong></h4> 
+                 
+                  <ul> 
+                    <a href="/restaurant/{{this}}"><button type="submit" class="btn btn-warning" id="{{this}}">{{this}}</button></a> 
+                  </ul> 
+                
+              </div> 
+              <div class="modal-footer"> 
+                <button type="button" class="btn btn-default center-block" id="modal-close-btn" data-dismiss="modal">Close</button> 
+              </div> 
+            </div> 
+          </div> 
+        </div> 
+        {{!-- end modal --}}  
+      {{/each}} 
+       
+    </div> 
+  </div> 
+ 
+<div class="row"> 
+  <div class="col-lg-12"> 
+    <img src="/assets/images/scotch.jpg" alt="image of a glass of bourbon" class="img-responsive"  > 
+  </div> 
+</div> 
+ 
+  <footer class="footer"> &#169; Dennis Gruszka, Jason Young, Zoli Saunt, Chang-Yeon Kim </footer> 
+ 
+</div> 
+ 
+File contents are unchanged.
+commit:25b7de
