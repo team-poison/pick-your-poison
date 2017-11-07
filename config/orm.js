@@ -85,6 +85,25 @@ var orm = {
       cb(result);
     });
   },
+
+  getRestaurantDrinks: function(tableInput, restaurantName, cb) {
+    var queryString = "SELECT * FROM " + tableInput;
+    queryString += " WHERE " + restaurant + " = " + restaurantName;
+    //console.log(queryString)
+
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      console.log(result)
+      var restaurants = [];
+      for (var i = 0; i < result.length; i++) {
+        restaurants.push(result[i]["restaurant"])
+      }
+      cb(restaurants);
+    });
+  },
+  
   
   addRestaurant: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
@@ -161,7 +180,7 @@ var orm = {
     ]
 
     for (var i = 0; i < colHeadings.length; i++) {
-      cols.push(colHeadings[i])
+      cols.push(colHeadings[i]);
     };
 
     var quotedVals = vals[1];

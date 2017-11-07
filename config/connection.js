@@ -3,10 +3,14 @@ var mysql = require("mysql");
 
 var connection = mysql.createConnection({
 // <<<<<<< HEAD
-  port: 3306,
+  port: 8889,
   host: "localhost",
   user: "root",
+<<<<<<< HEAD
   password: "Wired410",
+=======
+  password: "root",
+>>>>>>> Zoli
   database: "pyp_db"
 // =======
 //   socketPath:"/Applications/MAMP/tmp/mysql/mysql.sock", 
