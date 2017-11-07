@@ -53,10 +53,11 @@ var orm = {
       cb(colHeadings);
     });
   },
+
   getLocation: function(tableInput, drinkName, cb) {
     var queryString = "SELECT * FROM " + tableInput;
     queryString += " WHERE " + drinkName + " =1";
-    console.log(queryString)
+    //console.log(queryString)
 
     connection.query(queryString, function(err, result) {
       if (err) {
@@ -70,11 +71,12 @@ var orm = {
       cb(restaurants);
     });
   },
+
   getLocationInfo: function(tableInput, locationName, cb) {
     var queryString = "SELECT * FROM " + tableInput;
     queryString += " WHERE name='";
     queryString += drinkName+"'";
-    console.log(queryString)
+    //console.log(queryString)
 
     connection.query(queryString, function(err, result) {
       if (err) {
@@ -104,7 +106,7 @@ var orm = {
     for (var i = 0; i < colHeadings.length; i++) {
       cols.push(colHeadings[i])
     };
-
+    //console.log(cols);
     var quotedVals = ["'"+vals[0]+"'",vals[1]].toString();
     console.log(quotedVals)
 
@@ -128,16 +130,61 @@ var orm = {
   },
   
   addDrink: function(table, drinkName, cb) {
-    var queryString = "ALTER TABLE " + table + " ADD COLUMN " + drinkName + " VARCHAR(50);";
+    var queryString = "ALTER TABLE " + table + " ADD COLUMN " + drinkName + " VARCHAR(50) BOOLEAN DEFAULT 0;";
 
-    console.log(queryString)
+    //console.log(queryString)
     
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
-      console.log(result);
+      //console.log(result);
       cb (result);
+    });
+  },
+
+  updateInventory: function(table, cols, vals, cb) {
+    var queryString = "UPDATE " + table;
+    
+    var colHeadings = [ 
+      'Blantons',
+      'Four_Roses',
+      'Pappy_Van_Winkle_15y',
+      'Black_Maple_Hill_16yr',
+      'Yamazaki_18yr',
+      'Johnny_Walker_Blue',
+      'Handcocks_Presidential_Reserve',
+      'Balvenie_50yr',
+      'Michters_20yr',
+      'Elija_Craig_18yr',
+      'Red_Breast_15yr'
+    ]
+
+    for (var i = 0; i < colHeadings.length; i++) {
+      cols.push(colHeadings[i])
+    };
+
+    var quotedVals = vals[1];
+
+    queryString += " SET ";
+
+    for (var i = 0; i < colHeadings.length-1; i++) {
+      queryString += colHeadings[i] + " = " + quotedVals[i] + ", "; 
+    }
+
+    queryString += colHeadings[colHeadings.length-1] + " = " + quotedVals[colHeadings.length-1];
+
+    name = String(vals[0]);
+    //console.log(name);
+    queryString += " WHERE restaurant = " + "'" + name + "'";
+
+    //console.log(queryString);
+
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
     });
   }
 
