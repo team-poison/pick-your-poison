@@ -46,13 +46,18 @@ $(document).ready(function() {
   	$.post("/managerOption/submitRestaurant", newRestaurant, function(data) {});
 	});
 
-	$("update-inventory").on("click", function() {
+	$("#update-inventory").on("click", function() {
 		var updateInfo = {
   		"name": $("#rest-name").val(),
   		"input": restaurantInput
   	};
 
   	$.post("/managerOption/updateInventory", updateInfo, function(data) {});
+	});
+
+	$(".drink-type-button").on("click", function() {
+		var name = event.target.id;
+		console.log(name);
 	});
 
 	$("#submit-drink").on("click", function() {

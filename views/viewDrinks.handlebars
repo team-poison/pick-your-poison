@@ -12,7 +12,7 @@
     <div class="panel-body"> 
       {{#each drink}} 
         <div class="col-sm-4"> 
-          <button type="button" class="btn btn-warning center-block drink-type-button" data-toggle="modal" data-target="#drink-modal" id="{{this}}" style="background-image:url('assets/images/buttonBG.png'); background-repeat: no-repeat; width:100%; height:100px; margin-top:15px;"><span style="font-weight:bold; font-size:140%; color:#f2e1a7">{{this}}</span><br>View This Drink</button> 
+          <a href = "/drink/{{this}}"><button type="button" class="btn btn-warning center-block drink-type-button" data-toggle="modal" data-target="#drink-modal" id="{{this}}" style="background-image:url('assets/images/buttonBG.png'); background-repeat: no-repeat; width:100%; height:100px; margin-top:15px;"><span style="font-weight:bold; font-size:140%; color:#f2e1a7">{{this}}</span><br>View This Drink</button></a> 
         </div>  
  
         {{!-- modal --}}       

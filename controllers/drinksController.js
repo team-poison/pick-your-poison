@@ -45,6 +45,10 @@ router.get("/restaurant/:name", function(req, res) {
   });
 });
 
+router.get("/managerOption/updateRestInventory", function(req,res) {
+  res.render("updateRestInventory");
+});
+
 router.post("/managerOption/submitRestaurant", function(req, res) {
   
   //console.log(req.body.name);
