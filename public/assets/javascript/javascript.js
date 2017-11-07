@@ -52,6 +52,7 @@ $(document).ready(function() {
 			
   	var newRestaurant = {
   		"name": $("#rest-name").val(),
+  		"blurb": $("#blurb-field").val(),
   		"input": restaurantInput
   	};
 

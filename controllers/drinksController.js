@@ -51,10 +51,10 @@ router.get("/managerOption/updateRestInventory", function(req,res) {
 
 router.post("/managerOption/submitRestaurant", function(req, res) {
   
-  //console.log(req.body.name);
+  //console.log(req.body.blurb);
   drinksDB.addRestaurant([
     "restaurant"], [
-    req.body["name"], req.body["input[]"]
+    req.body["name"], req.body["blurb"], req.body["input[]"]
   ], function() {
     res.redirect("/");
   });
