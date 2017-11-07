@@ -149,7 +149,7 @@ var orm = {
   },
   
   addDrink: function(table, drinkName, cb) {
-    var queryString = "ALTER TABLE " + table + " ADD COLUMN " + drinkName + " VARCHAR(50) BOOLEAN DEFAULT 0;";
+    var queryString = "ALTER TABLE " + table + " ADD COLUMN " + drinkName + " BOOLEAN DEFAULT 0;";
 
     //console.log(queryString)
     

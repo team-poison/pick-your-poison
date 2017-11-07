@@ -70,7 +70,7 @@ router.post("/managerOption/submitDrink", function(req, res) {
 
 router.post("/managerOption/updateInventory", function(req, res) {
   
-  //console.log(req.body["input[]"])
+  console.log(req.body["input[]"]);
   drinksDB.updateInventory(["restaurant"], [req.body["name"], req.body["input[]"]], function() {
     res.redirect("/");
   });

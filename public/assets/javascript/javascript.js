@@ -49,20 +49,23 @@ $(document).ready(function() {
 	});
 
 	$("#submit-restaurant").on("click", function() {
+			
+  	var newRestaurant = {
+  		"name": $("#rest-name").val(),
+  		"input": restaurantInput
+  	};
 
-	  	var newRestaurant = {
-	  		"name": $("#rest-name").val(),
-	  		"location": $("#rest-loc").val(),
-	  		"input": restaurantInput
-	  	};
+  	$.post("managerOption/submitRestaurant", newRestaurant, function(data){});
 	});
 
 	$("#update-inventory").on("click", function() {
 		var updateInfo = {
   		"name": $("#rest-name").val(),
   		"input": restaurantInput
-  		};
-  	});
+  	};
+
+  	$.post("/managerOption/updateInventory", updateInfo, function(data) {});
+	});
 
 
 	$("#submit-drink").on("click", function() {
@@ -71,7 +74,7 @@ $(document).ready(function() {
 	  		"drinkName": $("#drink-name").val(),
 	  	}; 
 
-  		$.post("/managerOption/submitDrink", newDrink, function(data) {});
-  	});
+  		$.post("/managerOption/submitDrink", newDrink, function(data){});
+  });
 
 });
