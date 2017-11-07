@@ -47,7 +47,7 @@ var orm = {
         throw err;
       }
       var colHeadings = [];
-      for (var i = 2; i < result.length; i++) {
+      for (var i = 3; i < result.length; i++) {
         colHeadings.push(result[i]["Field"])
       }
       cb(colHeadings);
