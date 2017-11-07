@@ -21,6 +21,12 @@ var drinks = {
     });
   },
 
+  updateInventory: function(rows, val, cb) {
+    orm.updateInventory("restaurants", rows, val, function(res) {
+      cb(res);
+    });
+  },
+
   addDrink: function(drinkName, cb) {
     console.log(drinkName);
     orm.addDrink("restaurants", drinkName, function(res) {

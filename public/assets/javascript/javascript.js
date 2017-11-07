@@ -34,16 +34,25 @@ $(document).ready(function() {
 		restaurantInput.splice(parseInt(userInput.split("-")[0]), 1, parseInt(userInput.split("-")[1]));
 	});
 
-    $("#submit-restaurant").on("click", function() {
+  $("#submit-restaurant").on("click", function() {
 
-    	var newRestaurant = {
-    		"name": $("#rest-name").val(),
-    		"location": $("#rest-loc").val(),
-    		"input": restaurantInput
-    	};
+  	var newRestaurant = {
+  		"name": $("#rest-name").val(),
+  		"location": $("#rest-loc").val(),
+  		"input": restaurantInput
+  	};
 
-    	// AJAX post the data to the friends API. 
-    	$.post("/managerOption/submitRestaurant", newRestaurant, function(data) {});
+  	// AJAX post the data to the friends API. 
+  	$.post("/managerOption/submitRestaurant", newRestaurant, function(data) {});
+	});
+
+	$("update-inventory").on("click", function() {
+		var updateInfo = {
+  		"name": $("#rest-name").val(),
+  		"input": restaurantInput
+  	};
+
+  	$.post("/managerOption/updateInventory", updateInfo, function(data) {});
 	});
 
 	$("#submit-drink").on("click", function() {

@@ -13,7 +13,6 @@ router.get("/managerOption", function(req, res) {
 router.get("/viewDrinks", function(req, res) {
   drinksDB.all(function(data) {
 
-
     var newData = data.map(function(string){
         return string.replace(/_/g, " ");
     });
@@ -48,7 +47,7 @@ router.get("/restaurant/:name", function(req, res) {
 
 router.post("/managerOption/submitRestaurant", function(req, res) {
   
-  console.log(req.body["input[]"])
+  //console.log(req.body.name);
   drinksDB.addRestaurant([
     "restaurant"], [
     req.body["name"], req.body["input[]"]
@@ -62,6 +61,14 @@ router.post("/managerOption/submitDrink", function(req, res) {
   //console.log(req.body["drinkName"]);
   drinksDB.addDrink(req.body["drinkName"], function() {
       res.redirect("/");
+  });
+});
+
+router.post("/managerOption/updateInventory", function(req, res) {
+  
+  //console.log(req.body["input[]"])
+  drinksDB.updateInventory(["restaurant"], [req.body["name"], req.body["input[]"]], function() {
+    res.redirect("/");
   });
 });
 
