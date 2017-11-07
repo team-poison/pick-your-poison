@@ -56,7 +56,7 @@ body {
 .footer {
     padding: 30px;
     height: 80px;
-    margin-top: 40px;
+    margin-top: 60px;
     background-color: #1f0200;
     background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
     color: #F7E7CE;
@@ -91,5 +91,24 @@ li {
 .container {
 
     background: rgba(242, 242, 242, 0.1);
+<<<<<<< HEAD
     /*margin: 0, auto;*/
 }
+=======
+    margin: 0, auto;
+}
+
+#home {
+    margin: 3px;
+    color: #F7E7CE;
+    background-color: #1f0200;
+}
+
+#pin{
+    margin-left: 15px;
+}
+
+#alcohol{
+    margin-left: 15px;
+}
+>>>>>>> Dennis
