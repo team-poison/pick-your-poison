@@ -34,33 +34,47 @@ $(document).ready(function() {
 		restaurantInput.splice(parseInt(userInput.split("-")[0]), 1, parseInt(userInput.split("-")[1]));
 	});
 
-  $("#submit-restaurant").on("click", function() {
-
-  	var newRestaurant = {
-  		"name": $("#rest-name").val(),
-  		"location": $("#rest-loc").val(),
-  		"input": restaurantInput
-  	};
-
-  	// AJAX post the data to the friends API. 
-  	$.post("/managerOption/submitRestaurant", newRestaurant, function(data) {});
+	$(".drink-type-button").on("click", function(event) {
+		var drinkName = event.target.id
+		$.get("/drink/"+drinkName, function(data) {
+			$("#modal-title").html(drinkName)
+			var restaurants = data.restaurant;
+			$("#modal-buttons").empty()
+			for (var i = 0; i < restaurants.length; i++) {
+				$("#modal-buttons").append(
+					'<li><button type="submit" class="btn btn-warning" id='+restaurants[i]+'>'+restaurants[i]+'</button></li>' 
+				);
+			};
+		});
 	});
 
-	$("update-inventory").on("click", function() {
-		var updateInfo = {
-  		"name": $("#rest-name").val(),
-  		"input": restaurantInput
-  	};
+	$("#submit-restaurant").on("click", function() {
 
-  	$.post("/managerOption/updateInventory", updateInfo, function(data) {});
-	});
+	  	var newRestaurant = {
+	  		"name": $("#rest-name").val(),
+	  		"location": $("#rest-loc").val(),
+	  		"input": restaurantInput
+	  	};
 
-	$("#submit-drink").on("click", function() {
+	  	// AJAX post the data to the friends API. 
+	  	$.post("/managerOption/submitRestaurant", newRestaurant, function(data) {});
+		});
 
-	  	var newDrink = {
-	  		"drinkName": $("#drink-name").val(),
-	  	}; 
-  		$.post("/managerOption/submitDrink", newDrink, function(data) {});
-  	});
+		$("update-inventory").on("click", function() {
+			var updateInfo = {
+	  		"name": $("#rest-name").val(),
+	  		"input": restaurantInput
+	  	};
+
+	  	$.post("/managerOption/updateInventory", updateInfo, function(data) {});
+		});
+
+		$("#submit-drink").on("click", function() {
+
+		  	var newDrink = {
+		  		"drinkName": $("#drink-name").val(),
+		  	}; 
+	  		$.post("/managerOption/submitDrink", newDrink, function(data) {});
+	  	});
 
 });

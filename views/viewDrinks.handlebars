@@ -21,14 +21,12 @@
             <div class="modal-content"> 
               <div class="modal-header">  
                 <button type="button" class="close" data-dismiss="modal" style="color:#ffffff;">&times;</button> 
-                <h2 id="modal-title">{{this}}</h2> 
+                <h2 id="modal-title"></h2> 
               </div> 
               <div class="modal-body"> 
                 <h4><strong>This bourbon is located at these bars/stores:</strong></h4> 
                  
-                  <ul> 
-                    <a href="/restaurant/{{this}}"><button type="submit" class="btn btn-warning" id="{{this}}">{{this}}</button></a> 
-                  </ul> 
+                  <ul id="modal-buttons"></ul> 
                 
               </div> 
               <div class="modal-footer"> 

@@ -32,7 +32,7 @@ router.get("/drink/:name", function(req, res) {
     var restaurants = {
       restaurant: data
     }
-    res.render("viewRestaurants", restaurants)
+    res.send(restaurants)
   });
 });
 
