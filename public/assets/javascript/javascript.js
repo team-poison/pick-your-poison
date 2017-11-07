@@ -55,32 +55,23 @@ $(document).ready(function() {
 	  		"location": $("#rest-loc").val(),
 	  		"input": restaurantInput
 	  	};
+	});
 
 	$("#update-inventory").on("click", function() {
 		var updateInfo = {
   		"name": $("#rest-name").val(),
   		"input": restaurantInput
-  	};
+  		};
+  	});
 
-		$("update-inventory").on("click", function() {
-			var updateInfo = {
-	  		"name": $("#rest-name").val(),
-	  		"input": restaurantInput
-	  	};
-
-	$(".drink-type-button").on("click", function() {
-		var name = event.target.id;
-		console.log(name);
-	});
 
 	$("#submit-drink").on("click", function() {
 
-		$("#submit-drink").on("click", function() {
+	  	var newDrink = {
+	  		"drinkName": $("#drink-name").val(),
+	  	}; 
 
-		  	var newDrink = {
-		  		"drinkName": $("#drink-name").val(),
-		  	}; 
-	  		$.post("/managerOption/submitDrink", newDrink, function(data) {});
-	  	});
+  		$.post("/managerOption/submitDrink", newDrink, function(data) {});
+  	});
 
 });
