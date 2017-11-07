@@ -23,3 +23,27 @@
 	width:40%;
 }
 
+.panel-default > .panel-heading{
+	padding:20px;
+	 background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+	background-color:#1f0200;
+	color: #F7E7CE;
+	 }
+
+	 #drink-selection-panel{
+    border-style: outset;
+    border-color: #7c4e2f;
+    border-width: 3px;
+    background-color: #1f0200;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+    color: #F7E7CE;
+    text-align: center;
+
+}
+#butts{
+	border-style: outset;
+    border-color: #7c4e2f;
+    border-width: 3px;
+    color: #F7E7CE;
+	background-color:#1f0200;
+}
