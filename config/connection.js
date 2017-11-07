@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
   port: 3306,
   host: "localhost",
   user: "root",
-  password: "joguktong1!",
+  password: "Wired410",
   database: "pyp_db"
 // =======
 //   socketPath:"/Applications/MAMP/tmp/mysql/mysql.sock", 
