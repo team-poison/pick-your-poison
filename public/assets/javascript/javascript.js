@@ -7,27 +7,27 @@ $(document).ready(function() {
 		restaurantInput.push(0);
 	}
 
-	var drinksArray = ["Blantons", "Four Roses", "Pappy Van Winkle - 15 years", 
-	"Black Maple Hill - 16 years", "Yamazaki - 16 years", "Johnny Walker Blue", 
-	"Handcocks Presidential Reserve", "Balvenie - 50 years", "Michters - 20 years", 
-	"Elija Craig - 18 years", "Red Beast - 15 years"]
+	$.get("/fillStockForm", function(data) {
+		console.log(data)
+		var drinksArray = data.drink; 
 
-	for (var i = 0; i < drinksArray.length; i++) {
+		for (var i = 0; i < drinksArray.length; i++) {
 
-		var userInput = $("<div class='panel panel-default user-input'>");
+			var userInput = $("<div class='panel panel-default user-input'>");
 
-		var yesRadioButton = $('<label class="radio-inline" style="margin-left:8px; margin-bottom:6px;">');
-		var noRadioButton = $('<label class="radio-inline" style="margin-left:15px; margin-bottom:6px;">');
+			var yesRadioButton = $('<label class="radio-inline" style="margin-left:8px; margin-bottom:6px;">');
+			var noRadioButton = $('<label class="radio-inline" style="margin-left:15px; margin-bottom:6px;">');
 
-		yesRadioButton.html('<input type="radio" name="optradio" value='+(i+'-1')+'>Yes');
-		noRadioButton.html('<input type="radio" name="optradio" value='+(i+'-0')+'>No');
+			yesRadioButton.html('<input type="radio" name="optradio" value='+(i+'-1')+'>Yes');
+			noRadioButton.html('<input type="radio" name="optradio" value='+(i+'-0')+'>No');
 
-		userInput.append('<p class="panel-heading" id="drink-title">'+drinksArray[i]+'</p>');
-		userInput.append(yesRadioButton)
-		userInput.append(noRadioButton)
+			userInput.append('<p class="panel-heading" id="drink-title">'+drinksArray[i]+'</p>');
+			userInput.append(yesRadioButton)
+			userInput.append(noRadioButton)
 
-		$("#drink-stock-form").append(userInput);
-	};
+			$("#drink-stock-form").append(userInput);
+		};
+	});
 
 	$(".user-input").on("click", function(event) {
 		var userInput = event.target.value
@@ -54,8 +54,10 @@ $(document).ready(function() {
 			var restaurantName = event.target.id
 			$("#restaurant-modal-title").empty()
 			$("#restaurant-modal-title").html(restaurantName)
+			$("#current-restaurant").empty()
+			$("#current-restaurant").html(restaurantName)
 			console.log("/restaurant/"+restaurantName)
-			restaurantName = restaurantName.replace("'", "''")
+			restaurantName = restaurantName.replace(/'/, "''")
 			$.get("/restaurant/"+restaurantName, function(data) {	
 				console.log(data)
 				$("#restaurant-blurb").empty()
@@ -64,13 +66,13 @@ $(document).ready(function() {
 				for (x in data["restaurantInfo"]) {
 					if (x !== "blurb" || x !== "id" || x !== "restaurant") {
 						if (data["restaurantInfo"][x] === 1) {
-							drinksServed.push(x.replace("_"," "))
+							drinksServed.push(x.replace(/_/g , " "))
 						};
 					};
 				};
 				$("#drinks-served").empty()
 				for (var i = 0; i < drinksServed.length; i++) {
-					$("#drinks-served").append('<li>'+drinksServed[i]+'</li>');
+					$("#drinks-served").append('<li style="color: black">'+drinksServed[i]+'</li>');
 				}
 
 			});

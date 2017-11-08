@@ -26,6 +26,23 @@ router.get("/viewDrinks", function(req, res) {
   });
 });
 
+router.get("/fillStockForm", function(req, res) {
+  drinksDB.all(function(data) {
+
+    var newData = data.map(function(string){
+        return string.replace(/_/g, " ");
+    });
+
+    var drinks = {
+      drink: newData
+    }
+    
+    //console.log(newData);
+    res.send(drinks);
+  });
+});
+
+
 router.get("/drink/:name", function(req, res) {
   var name = req.params.name.replace(/ /g, "_");
   drinksDB.getLocation(name, function(data) {
