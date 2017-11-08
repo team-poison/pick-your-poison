@@ -50,12 +50,12 @@ $(document).ready(function() {
 	});
 
 	$("#drink-modal").on("click", function(event) {
-		console.log(event)
 		var restaurantName = event.target.id
 		$("#restaurant-modal-title").html(restaurantName)
-		$.get("/restaurant/"+restaurantName, function(data) {
-			
+		$.get("/restaurant/"+restaurantName, function(data) {	
 			console.log(data)
+			$("#restaurant-blurb").empty()
+			$("#restaurant-blurb").html(data.restaurantInfo.blurb)
 		});
 	});
 
