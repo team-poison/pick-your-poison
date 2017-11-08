@@ -103,35 +103,25 @@ var orm = {
   },
   
   
-  addRestaurant: function(table, cols, vals, cb) {
+  addRestaurant: function(table, restaurantName, restaurantInfo, cb) {
     var queryString = "INSERT INTO " + table;
     
-    var colHeadings = [ 
-      'blurb',
-      'Blantons',
-      'Four_Roses',
-      'Pappy_Van_Winkle_15y',
-      'Black_Maple_Hill_16yr',
-      'Yamazaki_18yr',
-      'Johnny_Walker_Blue',
-      'Handcocks_Presidential_Reserve',
-      'Balvenie_50yr',
-      'Michters_20yr',
-      'Elija_Craig_18yr',
-      'Red_Breast_15yr'
-    ]
+    console.log("This is ORM!")
+    console.log(restaurantInfo)
 
-    for (var i = 0; i < colHeadings.length; i++) {
-      cols.push(colHeadings[i])
+    var colNames = ['restaurant', 'blurb']
+
+    for (var i = 0; i < restaurantInfo[2].length; i++) {
+      colNames.push(restaurantInfo[2][i].replace(/ /g, "_"))
     };
 
     //console.log(cols);
     //console.log(vals);
-    var quotedVals = ["'" + vals[0] + "', " + "'" + vals[1] + "'", vals[2]].toString();
+    var quotedVals = ["'" + restaurantInfo[0] + "', " + "'" + restaurantInfo[1] + "'", restaurantInfo[3]].toString();
     console.log(quotedVals);
 
     queryString += " (";
-    queryString += cols.toString();
+    queryString += colNames.toString();
     
     queryString += ") ";
     queryString += "VALUES (";
@@ -163,41 +153,35 @@ var orm = {
     });
   },
 
-  updateInventory: function(table, cols, vals, cb) {
-    var queryString = "UPDATE " + table;
+  updateInventory: function(table, restaurantName, restaurantInfo, cb) {
     
-    var colHeadings = [ 
-      'Blantons',
-      'Four_Roses',
-      'Pappy_Van_Winkle_15y',
-      'Black_Maple_Hill_16yr',
-      'Yamazaki_18yr',
-      'Johnny_Walker_Blue',
-      'Balvenie_50yr',
-      'Michters_20yr',
-      'Elija_Craig_18yr',
-      'Red_Breast_15yr'
-    ]
+    var queryString = "UPDATE " + table;
+    var colNames = ['restaurant', 'blurb']
 
-    for (var i = 0; i < colHeadings.length; i++) {
-      cols.push(colHeadings[i]);
+    console.log("This is orm")
+    for (var i = 0; i < restaurantInfo[2].length; i++) {
+      colNames.push(restaurantInfo[2][i].replace(/ /g, "_"))
     };
-
-    var quotedVals = vals[1];
+    
+    var cleanedRestaurntInput = [restaurantInfo[0], restaurantInfo[1]]
+    for (var i = 0; i < restaurantInfo[3].length; i++) {
+      cleanedRestaurntInput.push(restaurantInfo[3][i])
+    }
+    console.log(cleanedRestaurntInput);
 
     queryString += " SET ";
 
-    for (var i = 0; i < colHeadings.length-1; i++) {
-      queryString += colHeadings[i] + " = " + quotedVals[i] + ", "; 
+    var inputArray = []
+    for (var i = 0; i < colNames.length; i++) {
+       inputArray.push(colNames[i]+" = '"+String(cleanedRestaurntInput[i])+"'")
     }
 
-    queryString += colHeadings[colHeadings.length-1] + " = " + quotedVals[colHeadings.length-1];
+    console.log(String(inputArray))
 
-    name = String(vals[0]);
-    //console.log(name);
-    queryString += " WHERE restaurant = " + "'" + name + "'";
+    queryString += String(inputArray)
+    queryString += " WHERE restaurant = " + "'" + String(restaurantInfo[0]) + "'";
 
-    //console.log(queryString);
+    console.log(queryString);
 
     connection.query(queryString, function(err, result) {
       if (err) {

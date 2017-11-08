@@ -21,16 +21,19 @@ var drinks = {
   },
 
   // The variables cols and vals are arrays.
-  addRestaurant: function(cols, val, cb) {
+  addRestaurant: function(restaurantName, restaurantInfo, cb) {
     //console.log(cols);
     //console.log(val);
-    orm.addRestaurant("restaurants", cols, val, function(res) {
+    orm.addRestaurant("restaurants", restaurantName, restaurantInfo, function(res) {
       cb(res);
     });
   },
 
-  updateInventory: function(rows, val, cb) {
-    orm.updateInventory("restaurants", rows, val, function(res) {
+  updateInventory: function(restaurantName, restaurantInfo, cb) {
+    console.log("This is models!")
+    console.log(restaurantName)
+    console.log(restaurantInfo)
+    orm.updateInventory("restaurants", restaurantName, restaurantInfo, function(res) {
       cb(res);
     });
   },

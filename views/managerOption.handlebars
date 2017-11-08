@@ -32,7 +32,7 @@
 					</div>
 					<div class="form-group">
 						<label for="blurb">Write a Short Description Here:</label>
-						<input type="text-field" class="form-control" id="blurb-field">
+						<input type="text-field" class="form-control" id="blurb-field" placeholder="Description">
 					</div>
 				</form>
 
@@ -41,7 +41,7 @@
 				<label for="form">Please Fill Out The Form For Each Drink You Have Stocked</label>
 				<div id="drink-stock-form"></div>
 				<br>
-				<button type="submit" class="btn btn-default" id="submit-restaurant">Submit</button>
+				<button type="submit" class="btn btn-default" data-toggle="modal" data-target="#submit-restaurant-modal" id="submit-restaurant">Submit</button>
 			</div>
 		</div>
 		
@@ -57,11 +57,41 @@
     				</div>
 					</form>
 
-					<button type="submit" class="btn btn-default" id="submit-drink">Submit</button> 
+					<button type="submit" data-toggle="modal" data-target="#submit-drink-modal" class="btn btn-default" id="submit-drink">Submit</button> 
 
 				</div>
 			</div>	
 		</div>	
+
+		<div id="submit-restaurant-modal" class="modal fade" role="dialog"> 
+      <div class="modal-dialog"> 
+        <div class="modal-content"> 
+          <div class="modal-header">Submission summary:</div> 
+          <div class="modal-body"> 
+							<ul id="submission-summary"></ul>            
+          </div> 
+          <div class="modal-footer"> 
+            <button type="button" class="btn btn-default center-block" id="modal-close-btn" data-dismiss="modal">Close</button> 
+          </div> 
+        </div> 
+      </div> 
+    </div> 
+
+    <div id="submit-drink-modal" class="modal fade" role="dialog"> 
+      <div class="modal-dialog"> 
+        <div class="modal-content"> 
+          <div class="modal-header">
+          	 <h2 class="modal-title">Submission successful!</h2> 
+          </div> 
+          <div class="modal-body text-center"> 
+            <h4><strong>You've submitted <span id="submitted-drink">!</span></strong></h4>                          
+          </div> 
+          <div class="modal-footer"> 
+            <button type="button" class="btn btn-default center-block" id="modal-close-btn" data-dismiss="modal">Close</button> 
+          </div> 
+        </div> 
+      </div> 
+    </div> 
 
 		<img src="/assets/images/pin3.jpg" alt="bourbon pin up girl" width="455px" height="800px" id="pin">
        	<br>
