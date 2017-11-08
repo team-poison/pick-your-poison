@@ -60,6 +60,19 @@ $(document).ready(function() {
 				console.log(data)
 				$("#restaurant-blurb").empty()
 				$("#restaurant-blurb").html(data["restaurantInfo"]["blurb"])
+				var drinksServed = []
+				for (x in data["restaurantInfo"]) {
+					if (x !== "blurb" || x !== "id" || x !== "restaurant") {
+						if (data["restaurantInfo"][x] === 1) {
+							drinksServed.push(x.replace("_"," "))
+						};
+					};
+				};
+				$("#drinks-served").empty()
+				for (var i = 0; i < drinksServed.length; i++) {
+					$("#drinks-served").append('<li>'+drinksServed[i]+'</li>');
+				}
+
 			});
 		}
 	});
