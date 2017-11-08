@@ -42,10 +42,27 @@ $(document).ready(function() {
 			$("#modal-buttons").empty()
 			for (var i = 0; i < restaurants.length; i++) {
 				$("#modal-buttons").append(
-					'<li><button type="submit" class="btn btn-warning" id='+restaurants[i]+'>'+restaurants[i]+'</button></li>' 
+					'<li><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#restaurant-modal"'+
+					'id="'+restaurants[i]+'">'+restaurants[i]+'</button></li>' 
 				);
 			};
 		});
+	});
+
+	$("#drink-modal").on("click", function(event) {
+		console.log(event)
+		var restaurantName = event.target.id
+		$("#restaurant-modal-title").html(restaurantName)
+		// $.get("/drink/"+drinkName, function(data) {
+		// 	$("#modal-title").html(drinkName)
+		// 	var restaurants = data.restaurant;
+		// 	$("#modal-buttons").empty()
+		// 	for (var i = 0; i < restaurants.length; i++) {
+		// 		$("#modal-buttons").append(
+		// 			'<li><button type="submit" class="btn btn-warning" id='+restaurants[i]+'>'+restaurants[i]+'</button></li>' 
+		// 		);
+		// 	};
+		// });
 	});
 
 	$("#submit-restaurant").on("click", function() {
