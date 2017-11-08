@@ -37,6 +37,7 @@ router.get("/drink/:name", function(req, res) {
 });
 
 router.get("/restaurant/:name", function(req, res) {
+  console.log(req.params)
   drinksDB.getLocationInfo(req.params.name, function(data) {
     var restaurantInfo = {
       restaurantInfo: data

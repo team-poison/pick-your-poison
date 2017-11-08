@@ -53,16 +53,10 @@ $(document).ready(function() {
 		console.log(event)
 		var restaurantName = event.target.id
 		$("#restaurant-modal-title").html(restaurantName)
-		// $.get("/drink/"+drinkName, function(data) {
-		// 	$("#modal-title").html(drinkName)
-		// 	var restaurants = data.restaurant;
-		// 	$("#modal-buttons").empty()
-		// 	for (var i = 0; i < restaurants.length; i++) {
-		// 		$("#modal-buttons").append(
-		// 			'<li><button type="submit" class="btn btn-warning" id='+restaurants[i]+'>'+restaurants[i]+'</button></li>' 
-		// 		);
-		// 	};
-		// });
+		$.get("/restaurant/"+restaurantName, function(data) {
+			
+			console.log(data)
+		});
 	});
 
 	$("#submit-restaurant").on("click", function() {

@@ -63,7 +63,6 @@ var orm = {
       if (err) {
         throw err;
       }
-      console.log(result)
       var restaurants = [];
       for (var i = 0; i < result.length; i++) {
         restaurants.push(result[i]["restaurant"])
@@ -76,7 +75,7 @@ var orm = {
     var queryString = "SELECT * FROM " + tableInput;
     queryString += " WHERE restaurant='";
     queryString += locationName+"'";
-    //console.log(queryString)
+    console.log(queryString)
 
     connection.query(queryString, function(err, result) {
       if (err) {
@@ -95,7 +94,6 @@ var orm = {
       if (err) {
         throw err;
       }
-      console.log(result)
       var restaurants = [];
       for (var i = 0; i < result.length; i++) {
         restaurants.push(result[i]["restaurant"])

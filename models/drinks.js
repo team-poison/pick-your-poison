@@ -15,7 +15,7 @@ var drinks = {
   },
 
   getLocationInfo: function(locationName, cb) {
-    orm.getLocation("restaurants", locationName, function(res) {
+    orm.getLocationInfo("restaurants", locationName, function(res) {
       cb(res);
     });
   },
@@ -36,7 +36,6 @@ var drinks = {
   },
 
   addDrink: function(drinkName, cb) {
-    console.log(drinkName);
     orm.addDrink("restaurants", drinkName, function(res) {
       cb(res);
     });
