@@ -51,10 +51,10 @@ router.get("/managerOption/updateRestInventory", function(req,res) {
 
 router.post("/managerOption/submitRestaurant", function(req, res) {
   
-  //console.log(req.body.name);
+  //console.log(req.body.blurb);
   drinksDB.addRestaurant([
     "restaurant"], [
-    req.body["name"], req.body["input[]"]
+    req.body["name"], req.body["blurb"], req.body["input[]"]
   ], function() {
     res.redirect("/");
   });
@@ -70,7 +70,7 @@ router.post("/managerOption/submitDrink", function(req, res) {
 
 router.post("/managerOption/updateInventory", function(req, res) {
   
-  //console.log(req.body["input[]"])
+  console.log(req.body["input[]"]);
   drinksDB.updateInventory(["restaurant"], [req.body["name"], req.body["input[]"]], function() {
     res.redirect("/");
   });

@@ -47,7 +47,7 @@ var orm = {
         throw err;
       }
       var colHeadings = [];
-      for (var i = 2; i < result.length; i++) {
+      for (var i = 3; i < result.length; i++) {
         colHeadings.push(result[i]["Field"])
       }
       cb(colHeadings);
@@ -109,6 +109,7 @@ var orm = {
     var queryString = "INSERT INTO " + table;
     
     var colHeadings = [ 
+      'blurb',
       'Blantons',
       'Four_Roses',
       'Pappy_Van_Winkle_15y',
@@ -125,9 +126,11 @@ var orm = {
     for (var i = 0; i < colHeadings.length; i++) {
       cols.push(colHeadings[i])
     };
+
     //console.log(cols);
-    var quotedVals = ["'"+vals[0]+"'",vals[1]].toString();
-    console.log(quotedVals)
+    //console.log(vals);
+    var quotedVals = ["'" + vals[0] + "', " + "'" + vals[1] + "'", vals[2]].toString();
+    console.log(quotedVals);
 
     queryString += " (";
     queryString += cols.toString();
@@ -138,7 +141,7 @@ var orm = {
     queryString += quotedVals;
     queryString += ") ";
 
-    //console.log(queryString);
+    console.log(queryString);
 
     connection.query(queryString, function(err, result) {
       if (err) {
@@ -149,7 +152,7 @@ var orm = {
   },
   
   addDrink: function(table, drinkName, cb) {
-    var queryString = "ALTER TABLE " + table + " ADD COLUMN " + drinkName + " VARCHAR(50) BOOLEAN DEFAULT 0;";
+    var queryString = "ALTER TABLE " + table + " ADD COLUMN " + drinkName + " BOOLEAN DEFAULT 0;";
 
     //console.log(queryString)
     
@@ -172,7 +175,6 @@ var orm = {
       'Black_Maple_Hill_16yr',
       'Yamazaki_18yr',
       'Johnny_Walker_Blue',
-      'Handcocks_Presidential_Reserve',
       'Balvenie_50yr',
       'Michters_20yr',
       'Elija_Craig_18yr',

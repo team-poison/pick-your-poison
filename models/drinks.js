@@ -15,8 +15,10 @@ var drinks = {
   },
 
   // The variables cols and vals are arrays.
-  addRestaurant: function(rows, val, cb) {
-    orm.addRestaurant("restaurants", rows, val, function(res) {
+  addRestaurant: function(cols, val, cb) {
+    //console.log(cols);
+    //console.log(val);
+    orm.addRestaurant("restaurants", cols, val, function(res) {
       cb(res);
     });
   },

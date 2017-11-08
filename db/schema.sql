@@ -4,6 +4,7 @@ USE pyp_db;
 CREATE TABLE restaurants(
   id INTEGER(11) AUTO_INCREMENT NOT NULL,
   restaurant VARCHAR(100),
+  blurb VARCHAR(200),
   Blantons BOOLEAN Default 0,
   Four_Roses BOOLEAN Default 0,
   Pappy_Van_Winkle_15y BOOLEAN Default 0,
