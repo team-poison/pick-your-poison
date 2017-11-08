@@ -74,15 +74,15 @@ var orm = {
 
   getLocationInfo: function(tableInput, locationName, cb) {
     var queryString = "SELECT * FROM " + tableInput;
-    queryString += " WHERE name='";
-    queryString += drinkName+"'";
+    queryString += " WHERE restaurant='";
+    queryString += locationName+"'";
     //console.log(queryString)
 
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
-      cb(result);
+      cb(result[0]);
     });
   },
 

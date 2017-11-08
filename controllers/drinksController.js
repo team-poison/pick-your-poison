@@ -41,7 +41,7 @@ router.get("/restaurant/:name", function(req, res) {
     var restaurantInfo = {
       restaurantInfo: data
     }
-    res.render("showRestaurantInfo", restaurantInfo)
+    res.send(restaurantInfo)
   });
 });
 

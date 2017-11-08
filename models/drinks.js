@@ -14,6 +14,12 @@ var drinks = {
     });
   },
 
+  getLocationInfo: function(locationName, cb) {
+    orm.getLocation("restaurants", locationName, function(res) {
+      cb(res);
+    });
+  },
+
   // The variables cols and vals are arrays.
   addRestaurant: function(cols, val, cb) {
     //console.log(cols);
