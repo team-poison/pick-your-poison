@@ -39,24 +39,29 @@ $(document).ready(function() {
 		$.get("/drink/"+drinkName, function(data) {
 			$("#modal-title").html(drinkName)
 			var restaurants = data.restaurant;
-			$("#modal-buttons").empty()
+			$("#drink-modal-buttons").empty()
 			for (var i = 0; i < restaurants.length; i++) {
-				$("#modal-buttons").append(
-					'<li><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#restaurant-modal"'+
+				$("#drink-modal-buttons").append(
+					'<li><button type="button" class="btn btn-warning restaurant-selection-button" data-toggle="modal" data-target="#restaurant-modal"'+
 					'id="'+restaurants[i]+'">'+restaurants[i]+'</button></li>' 
 				);
 			};
 		});
 	});
 
-	$("#drink-modal").on("click", function(event) {
-		var restaurantName = event.target.id
-		$("#restaurant-modal-title").html(restaurantName)
-		$.get("/restaurant/"+restaurantName, function(data) {	
-			console.log(data)
-			$("#restaurant-blurb").empty()
-			$("#restaurant-blurb").html(data.restaurantInfo.blurb)
-		});
+	$("#drink-modal-buttons").on("click", function(event) {
+		if (event.target.className === "btn btn-warning restaurant-selection-button") {
+			var restaurantName = event.target.id
+			$("#restaurant-modal-title").empty()
+			$("#restaurant-modal-title").html(restaurantName)
+			console.log("/restaurant/"+restaurantName)
+			restaurantName = restaurantName.replace("'", "''")
+			$.get("/restaurant/"+restaurantName, function(data) {	
+				console.log(data)
+				$("#restaurant-blurb").empty()
+				$("#restaurant-blurb").html(data["restaurantInfo"]["blurb"])
+			});
+		}
 	});
 
 	$("#submit-restaurant").on("click", function() {
