@@ -7,7 +7,15 @@ router.get("/", function(req, res) {
 });
 
 router.get("/managerOption", function(req, res) {
-   res.render("managerOption");
+  res.render("managerOption");
+});
+
+router.get("/drink", function(req, res) {
+   res.render("viewOrCreate");
+});
+
+router.get("/restaurant", function(req, res) {
+   res.render("viewOrCreate");
 });
 
 router.get("/viewDrinks", function(req, res) {

@@ -1,3 +1,6 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
 DROP DATABASE IF EXISTS pyp_db;
 CREATE DATABASE pyp_db;
 USE pyp_db;
@@ -18,3 +21,13 @@ CREATE TABLE restaurants(
   Red_Breast_15yr BOOLEAN Default 0, 
   PRIMARY KEY (id)
 );
+
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER(5) NOT NULL AUTO_INCREMENT,
+  first_name text NOT NULL,
+  last_name text NOT NULL,
+  mob_no int(11) NOT NULL,
+  user_name varchar(200) NOT NULL,
+  pass_word varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
