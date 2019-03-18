@@ -6,7 +6,7 @@ var mysql = require("mysql");
 
 var connection = mysql.createConnection(process.env.JAWSDB_URL,{
   host: "yhrz9vns005e0734.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-  user: "eqaqvvtuaacc451b",
+  username: "eqaqvvtuaacc451b",
   password: "i64leo8n26rdrdvr",
   database: "hcprff39kr3hkz24"
 });
