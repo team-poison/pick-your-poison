@@ -1,1 +1,2 @@
 # pick-your-poison
+This was our second project.  Pick Your Poison enables users to find which bars/restaraunts serve rare whiskeys, although it could be used for any hard to find beverage.  It also has the restaraunt/bar account option that allows establishments to update theitr inventories.  It was our first full stack project using node, express, sql and handlebars.  Some of the styling is still a bit off, so I'd like to redesign it and make it a little less busy and easier to look at.  Also, some windows are displaying empty objects.  
